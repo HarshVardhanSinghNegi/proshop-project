@@ -25,7 +25,7 @@ const LoginScreen = () => {
 
     useEffect(() => {
         if (userInfo) {
-            navigate(redirect !== '/' ? `/login?redirect=${redirect}` : '/');
+            navigate(redirect);
         }
     }, [userInfo, redirect, navigate])
 
@@ -73,7 +73,7 @@ const LoginScreen = () => {
             <Row className='py-3'>
                 <Col>
                     new Customer?{' '}
-                    <Link to={redirect !== '/' ? `/register?redirect=${redirect}` : '/register'}>Register</Link>
+                    <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>Register</Link>
                 </Col>
             </Row>
         </FormContainer>
